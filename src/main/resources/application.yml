@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: abcfitness-ignite-gymmanagement
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/abcfitness
+    username: AbcFitness
+    password: Admin#123
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10  # Optimized connection pooling
+      minimum-idle: 2
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 20000
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update  # Change to 'validate' in production
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: false  # Set to 'true' for debugging
+
+  sql:
+    init:
+      mode: always  # Initializes schema on startup
+
+server:
+  port: 8080  # Change if necessary
