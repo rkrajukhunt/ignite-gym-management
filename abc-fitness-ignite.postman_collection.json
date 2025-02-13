@@ -1,0 +1,289 @@
+{
+	"info": {
+		"_postman_id": "0cd6345c-1b5f-4abc-80fc-4db58705b210",
+		"name": "ABC Fitness Ignite",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3925108",
+		"_collection_link": "https://emperor-brains-llp.postman.co/workspace/My-Workspace~dd9b9053-3eb5-41f9-8d42-49cfe6dab660/collection/3925108-0cd6345c-1b5f-4abc-80fc-4db58705b210?action=share&source=collection_link&creator=3925108"
+	},
+	"item": [
+		{
+			"name": "Creates Gym Class",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Pilates\",\n    \"startDate\": \"2025-03-10\",\n    \"endDate\": \"2025-03-20\",\n    \"startTime\": \"05:30\",\n    \"duration\": 40,\n    \"capacity\": 12\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/classes",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"classes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "HIIT",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"HIIT Workout\",\n    \"startDate\": \"2025-03-10\",\n    \"endDate\": \"2025-03-20\",\n    \"startTime\": \"05:30\",\n    \"duration\": 40,\n    \"capacity\": 12\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/classes",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"classes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Feb 2025 18:07:32 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"name\": \"HIIT Workout\",\n        \"capacity\": 12,\n        \"startDate\": \"2025-03-10\",\n        \"endDate\": \"2025-03-20\",\n        \"startTime\": \"05:30:00\",\n        \"duration\": 40\n    },\n    \"message\": \"Class created successfully!\",\n    \"success\": true,\n    \"statusCode\": 201,\n    \"errorCode\": null,\n    \"timestamp\": \"2025-02-13T23:37:32.463614\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Book Class",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gymClassId\": 2,\n    \"memberName\": \"Raju Khunt\",\n    \"participationDate\": \"2025-03-15\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/bookings",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"bookings"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Class booking",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"gymClassId\": 2,\n    \"memberName\": \"Raju Khunt\",\n    \"participationDate\": \"2025-03-15\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/bookings",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Feb 2025 19:00:25 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 15,\n        \"memberName\": \"Raju Khunt\",\n        \"gymClassName\": \"HIIT Workout\",\n        \"participationDate\": \"2025-03-15\"\n    },\n    \"message\": \"Class booked successfully!\",\n    \"success\": true,\n    \"statusCode\": 201,\n    \"errorCode\": null,\n    \"timestamp\": \"2025-02-14T00:30:25.211937\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Search Booking",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/bookings/search?memberName=Raju Khunt&startDate=2025-03-10&endDate=2025-03-20",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"bookings",
+						"search"
+					],
+					"query": [
+						{
+							"key": "memberName",
+							"value": "Raju Khunt"
+						},
+						{
+							"key": "startDate",
+							"value": "2025-03-10"
+						},
+						{
+							"key": "endDate",
+							"value": "2025-03-20"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Search",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/bookings/search?memberName=Raju Khunt&startDate=2025-03-10&endDate=2025-03-20",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"bookings",
+								"search"
+							],
+							"query": [
+								{
+									"key": "memberName",
+									"value": "Raju Khunt"
+								},
+								{
+									"key": "startDate",
+									"value": "2025-03-10"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-03-20"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 13 Feb 2025 18:59:36 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 2,\n            \"memberName\": \"Raju Khunt\",\n            \"gymClass\": {\n                \"id\": 2,\n                \"name\": \"HIIT Workout\",\n                \"startDate\": \"2025-03-10\",\n                \"endDate\": \"2025-03-20\",\n                \"startTime\": \"05:30:00\",\n                \"duration\": 40,\n                \"capacity\": 12\n            },\n            \"participationDate\": \"2025-03-11\"\n        }\n    ],\n    \"message\": \"Operation completed successfully.\",\n    \"success\": true,\n    \"statusCode\": 200,\n    \"errorCode\": null,\n    \"timestamp\": \"2025-02-14T00:29:36.691499\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
