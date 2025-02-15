@@ -24,6 +24,9 @@ Before running the project, ensure you have:
 📌 Navigate to the project directory
    cd ignite-gym-management
 
+🧪 Run Test Cases
+   mvn test
+
 ⚙️ Build the Spring Boot Application
    mvn clean package
    
