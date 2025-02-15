@@ -6,12 +6,14 @@
 package com.ignite.gymmanagement.dto;
 
 import jakarta.validation.constraints.FutureOrPresent;
+import lombok.Builder;
 import lombok.Data;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 
 @Data
+@Builder
 public class ClassBookingRequestDto {
 
     @NotNull(message = "Member name is required")

@@ -108,6 +108,11 @@ public class GymService {
      */
     public GenericResponse<ClassBookingResponseDto> bookClass(ClassBookingRequestDto bookingRequest) {
         try {
+            // Validate request
+            if (bookingRequest == null) {
+                return ResponseUtils.error("Invalid request. Data cannot be null.", HttpStatus.BAD_REQUEST, ResponseConstants.BOOKING_ERROR_CODE);
+            }
+
             // Validate Gym Class Existence
             GymClass gymClass = gymClassRepository.findById(bookingRequest.getGymClassId())
                     .orElseThrow(() -> {
@@ -162,4 +167,5 @@ public class GymService {
             log.error("Unexpected error during booking: {}", e.getMessage(), e);
             return ResponseUtils.error(ResponseConstants.ERROR_BOOKING_FAILED, HttpStatus.INTERNAL_SERVER_ERROR, ResponseConstants.BOOKING_ERROR_CODE);
         }
-    }}
+    }
+}

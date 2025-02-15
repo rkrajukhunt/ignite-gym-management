@@ -7,6 +7,7 @@ package com.ignite.gymmanagement.util;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.Value;
 import java.time.LocalDateTime;
 
@@ -15,6 +16,8 @@ import java.time.LocalDateTime;
  *
  * @param <T> The type of the data being returned.
  */
+
+@Getter
 @Value
 @Data
 @Builder
